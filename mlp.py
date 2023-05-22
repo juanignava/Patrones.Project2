@@ -46,6 +46,9 @@ test_loader = DataLoader(test_dataset, batch_size=32)
 input_size = 229 * 229 * 3  # Tamaño de la imagen de entrada (224x224 píxeles con 3 canales)
 hidden_size = 512  # Tamaño de la capa oculta
 num_classes = len(dataset.classes)  # Número de clases
+print ("Tamaño de entrada____: ", input_size)
+print ("Tamaño capa oculta___: ", hidden_size)
+print ("Número de clases_____: ", num_classes)
 
 # Crear una instancia del modelo MLP
 model = MLP(input_size, hidden_size, num_classes)
@@ -117,7 +120,7 @@ def test(model, dataloader, criterion):
 
 # Entrenamiento y evaluación del modelo
 num_epochs = 10
-
+"""
 for epoch in range(num_epochs):
     train_loss, train_accuracy = train(model, train_loader, criterion, optimizer)
     val_loss, val_accuracy = validate(model, val_loader, criterion)
@@ -128,3 +131,4 @@ for epoch in range(num_epochs):
 # Evaluación final del modelo en el conjunto de prueba
 test_loss, test_accuracy = test(model, test_loader, criterion)
 print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.2f}%')
+"""
