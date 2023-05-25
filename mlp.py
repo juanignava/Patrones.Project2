@@ -22,7 +22,7 @@ class MLP(nn.Module):
 
 # Definir transformaciones de datos para preprocesamiento
 transform = transforms.Compose([
-    transforms.Resize((229, 229)),
+    transforms.Resize((28, 28)),
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
@@ -43,7 +43,7 @@ val_loader = DataLoader(val_dataset, batch_size=32)
 test_loader = DataLoader(test_dataset, batch_size=32)
 
 # Definir hiperparámetros
-input_size = 229 * 229 * 3  # Tamaño de la imagen de entrada (224x224 píxeles con 3 canales)
+input_size = 28 * 28 * 3 # Tamaño de la imagen de entrada (224x224 píxeles con 3 canales)
 hidden_size = 512  # Tamaño de la capa oculta
 num_classes = len(dataset.classes)  # Número de clases
 print ("Tamaño de entrada____: ", input_size)
@@ -120,7 +120,7 @@ def test(model, dataloader, criterion):
 
 # Entrenamiento y evaluación del modelo
 num_epochs = 10
-"""
+
 for epoch in range(num_epochs):
     train_loss, train_accuracy = train(model, train_loader, criterion, optimizer)
     val_loss, val_accuracy = validate(model, val_loader, criterion)
@@ -131,4 +131,3 @@ for epoch in range(num_epochs):
 # Evaluación final del modelo en el conjunto de prueba
 test_loss, test_accuracy = test(model, test_loader, criterion)
 print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.2f}%')
-"""
